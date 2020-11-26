@@ -69,6 +69,7 @@ class FlexPage(Page):
         [
             ("titulo_e_texto", streams.blocks.TituloETextoBlock()),
             ("full_richtext", streams.blocks.RichtextBlock()),
+            ("simple_richtext", streams.blocks.SimpleRichtextBlock()),
         ],
         null=True,
         blank=True,
