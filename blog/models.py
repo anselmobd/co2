@@ -79,5 +79,5 @@ class FlexPage(Page):
     ]
 
     class Meta:  # noqa
-        verbose_name = "Flex Page"
-        verbose_name_plural = "Flex Pages"
+        verbose_name = "Página Flex"
+        verbose_name_plural = "Páginas Flex"
