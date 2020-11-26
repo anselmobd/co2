@@ -7,6 +7,8 @@ from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.search import index
 
+import streams.blocks
+
 
 class BlogIndexPage(Page):
     """Página principal do blog"""
@@ -54,3 +56,28 @@ class BlogPage(Page):
     class Meta:
         verbose_name = 'Página de blog'
         verbose_name_plural = 'Páginas de blog'
+
+
+class FlexPage(Page):
+    """Flexible page class."""
+
+    template = "blog/flex_page.html"
+
+    subtitle = models.CharField(max_length=100, null=True, blank=True)
+
+    content = StreamField(
+        [
+            ("titulo_e_texto", streams.blocks.TituloETextoBlock()),
+        ],
+        null=True,
+        blank=True,
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("subtitle"),
+        StreamFieldPanel("content"),
+    ]
+
+    class Meta:  # noqa
+        verbose_name = "Flex Page"
+        verbose_name_plural = "Flex Pages"
