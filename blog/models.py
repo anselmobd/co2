@@ -71,6 +71,7 @@ class FlexPage(Page):
             ("full_richtext", streams.blocks.RichtextBlock()),
             ("simple_richtext", streams.blocks.SimpleRichtextBlock()),
             ("cards", streams.blocks.CardBlock()),
+            ("cta", streams.blocks.CTABlock()),
         ],
         null=True,
         blank=True,
