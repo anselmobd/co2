@@ -1,0 +1,122 @@
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+    DEVELOPMENT STATION
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+### Diretório do projeto
+
+mkdir -p ~/DevRepos/tussor/ContextO2
+cd ~/DevRepos/tussor/ContextO2
+
+## Diretorio para anotações
+
+mkdir -p ~/DevRepos/tussor/ContextO2/kb
+
+### virtualenv
+
+dpkg -l | grep virtualenv
+ii  python3-virtualenv                            15.1.0+ds-1.1                                    all          Python virtual environment creator
+ii  virtualenv                                    15.1.0+ds-1.1                                    all          Python virtual environment creator
+
+# para instalar
+sudo apt install virtualenv
+
+virtualenv --python=python3 --prompt=\(CO2\) venv --no-site-packages
+
+## teste activate
+
+. venv/bin/activate
+deactivate
+
+. venv/bin/activate
+
+pip install wagtail
+wagtail start co2 .
+pip install -r requirements.txt
+./manage.py migrate
+./manage.py createsuperuser
+    co2admin
+    anselmo@cuecasduomo.com.br
+    2345w2345
+./manage.py runserver
+
+# para rodar
+
+cd ~/DevRepos/tussor/ContextO2
+. venv/bin/activate
+./manage.py runserver 0.0.0.0:8282
+
+-------------
+
+https://docs.wagtail.io/en/v2.11.1/getting_started/tutorial.html
+
+# add "body", RichTextField, to home
+
+./manage.py makemigrations
+./manage.py migrate
+
+# edit templates/home/home_page.html to show 
+{{ page.body|richtext }}
+
+--
+
+Blog
+
+./manage.py startapp blog
+
+Add the new blog app to INSTALLED_APPS in mysite/settings/base.py.
+
+create class BlogIndexPage(Page) in blog/models.py
+
+./manage.py makemigrations
+./manage.py migrate
+
+cria templates/blog/blog_index_page.html
+
+=================
+
+https://www.youtube.com/channel/UCwbsAsY_C6EmGI6_JHhECEQ
+
+videos 1 a 4
+evoluindo:
+- home/models.py class HomePage
+- home/home_page.html
+
+vídeo 5
+django debug toolbar
+
+https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+
+pip install django-debug-toolbar
+
+INSTALLED_APPS
+urlpatterns
+MIDDLEWARE
+INTERNAL_IPS
+
+===
+
+themes using bootstrap
+
+https://bootswatch.com
+
+free image
+
+https://www.pexels.com
+
+===
+
+========= git 
+
+criado .gitignore
+
+git init
+git add .
+git commit
+
+
+
+
+
+
+
+
