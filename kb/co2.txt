@@ -57,21 +57,6 @@ https://docs.wagtail.io/en/v2.11.1/getting_started/tutorial.html
 # edit templates/home/home_page.html to show 
 {{ page.body|richtext }}
 
---
-
-Blog
-
-./manage.py startapp blog
-
-Add the new blog app to INSTALLED_APPS in mysite/settings/base.py.
-
-create class BlogIndexPage(Page) in blog/models.py
-
-./manage.py makemigrations
-./manage.py migrate
-
-cria templates/blog/blog_index_page.html
-
 =================
 
 https://www.youtube.com/channel/UCwbsAsY_C6EmGI6_JHhECEQ
@@ -98,6 +83,7 @@ INTERNAL_IPS
 themes using bootstrap
 
 https://bootswatch.com
+https://bootswatch.com/spacelab/
 
 free image
 
@@ -111,9 +97,29 @@ criado .gitignore
 
 git init
 git add .
+git status
 git commit
 
+# criado repositório co2 no github
 
+git branch -M main
+git remote add origin https://github.com/anselmobd/co2.git
+git push -u origin main
+
+================
+
+Blog
+
+./manage.py startapp blog
+
+Add the new blog app to INSTALLED_APPS in mysite/settings/base.py.
+
+create class BlogIndexPage(Page) in blog/models.py
+
+./manage.py makemigrations
+./manage.py migrate
+
+cria templates/blog/blog_index_page.html
 
 
 
