@@ -3,15 +3,18 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
+  <h1>{{ page.title }}</h1>
 
-    <div class="intro">{{ page.intro|richtext }}</div>
+  <div class="intro">{{ page.intro|richtext }}</div>
 
+  {% if blogpages %}
+    <ul>
     {% for post in blogpages %}
-        {% with post=post.specific %}
-            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-            <p>{{ post.intro }}</p>
-        {% endwith %}
+      {% with post=post.specific %}
+        <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
+      {% endwith %}
     {% endfor %}
+    </ul>
+  {% endif %}
 
 {% endblock %}
