@@ -9,6 +9,9 @@ from wagtail.search import index
 
 
 class BlogIndexPage(Page):
+    """Página principal do blog"""
+    # max_count = 1
+
     intro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -20,6 +23,10 @@ class BlogIndexPage(Page):
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
         return context
+
+    class Meta:
+        verbose_name = 'Página principal do blog'
+        verbose_name_plural = 'Páginas principais do blog'
 
 
 class BlogPage(Page):
@@ -43,3 +50,7 @@ class BlogPage(Page):
         FieldPanel('body', classname="full"),
         StreamFieldPanel('stream'),
     ]
+
+    class Meta:
+        verbose_name = 'Página de blog'
+        verbose_name_plural = 'Páginas de blog'
