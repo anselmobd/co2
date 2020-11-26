@@ -12,7 +12,7 @@ import streams.blocks
 
 class BlogIndexPage(Page):
     """Página principal do blog"""
-    # max_count = 1
+    max_count = 1
 
     intro = RichTextField(blank=True)
 
