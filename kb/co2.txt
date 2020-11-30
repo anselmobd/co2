@@ -121,6 +121,35 @@ create class BlogIndexPage(Page) in blog/models.py
 
 cria templates/blog/blog_index_page.html
 
+==========
+
+um app só para centratizar os streams
+
+./manage.py startapp streams
+
+em streams/blocks.py
+cria TituloETextoBlock
+
+em blog
+criada class FlexPage,
+que utiliza TituloETextoBlock
+
+- criados vários blocos em streams/blocks.py
+com seus templates
+e utilizando estes em mais de uma página
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
