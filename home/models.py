@@ -12,6 +12,11 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 import streams.blocks
 
 
+class PricipalPage(Page):
+    """Modelo de página principal oficial"""
+    max_count = 1
+
+
 class HomePage(Page):
     """Modelo de página principal"""
     max_count = 1
