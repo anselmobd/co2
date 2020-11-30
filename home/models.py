@@ -13,8 +13,18 @@ import streams.blocks
 
 
 class PrincipalPage(Page):
-    """Modelo de página principal oficial"""
+    """Página principal oficial"""
     max_count = 1
+
+    texto = RichTextField(blank=True, null=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('texto'),
+    ]
+
+
+class LinksPage(Page):
+    """Página de links"""
 
     texto = RichTextField(blank=False, null=True)
 
