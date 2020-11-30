@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+  <div class="container">
+    {% if self.texto %}
+      {{ self.texto|richtext }}
+    {% else %}
+      {{ self.title }}
+    {% endif %}
+  </div>
+{% endblock %}

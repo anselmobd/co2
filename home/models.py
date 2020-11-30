@@ -12,9 +12,15 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 import streams.blocks
 
 
-class PricipalPage(Page):
+class PrincipalPage(Page):
     """Modelo de página principal oficial"""
     max_count = 1
+
+    texto = RichTextField(blank=False, null=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('texto'),
+    ]
 
 
 class HomePage(Page):
