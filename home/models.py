@@ -5,6 +5,7 @@ from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     InlinePanel,
+    MultiFieldPanel,
     PageChooserPanel,
     StreamFieldPanel,
 )
@@ -46,6 +47,7 @@ class HomePageCarouselImages(Orderable):
         blank=False,
         on_delete=models.SET_NULL,
         related_name="+",
+        verbose_name="Imagem",
     )
 
     panels = [ImageChooserPanel("carousel_image")]
@@ -62,7 +64,8 @@ class HomePage(Page):
         null=True,
         blank=False,
         on_delete=models.SET_NULL,
-        related_name="+"
+        related_name="+",
+        verbose_name="Imagem do banner",
     )
     banner_cta = models.ForeignKey(
         "wagtailcore.Page",
@@ -82,13 +85,23 @@ class HomePage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel('banner_title'),
-        FieldPanel('banner_subtitle'),
-        ImageChooserPanel('banner_image'),
-        PageChooserPanel('banner_cta'),
-        FieldPanel('body', classname="full"),
+        MultiFieldPanel(
+            [
+                FieldPanel('banner_title'),
+                FieldPanel('banner_subtitle'),
+                ImageChooserPanel('banner_image'),
+                PageChooserPanel('banner_cta'),
+                FieldPanel('body', classname="full"),
+            ],
+            heading="Opções"
+        ),
         StreamFieldPanel("content"),
-        InlinePanel("carousel_images", max_num=5, min_num=1, label="Imagem"),
+        InlinePanel(
+            "carousel_images",
+            max_num=5,
+            min_num=1,
+            label="Imagens do carrossel"
+        ),
     ]
 
     class Meta:
