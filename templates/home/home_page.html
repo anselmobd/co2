@@ -2,6 +2,17 @@
 
 {% load wagtailcore_tags wagtailimages_tags %}
 
+{% block extra_css %}
+<style>
+ol.carousel-indicators li {
+  background-color: darkgrey;
+}
+ol.carousel-indicators li.active {
+  background-color: darkred;
+}
+</style>
+{% endblock %}
+
 {% block content %}
 
   {% image self.banner_image width-1500 as img %}
