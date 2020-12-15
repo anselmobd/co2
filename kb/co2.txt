@@ -138,6 +138,21 @@ que utiliza TituloETextoBlock
 com seus templates
 e utilizando estes em mais de uma página
 
+===
+
+um app só para settings globais
+
+./manage.py startapp site_settings
+
+= coloca settings em models
+
+===
+
+# um app para subscribers para pessoas se inscriverem
+# para um blog, por exemplo
+
+./manage.py startapp subscribers
+
 
 
 
